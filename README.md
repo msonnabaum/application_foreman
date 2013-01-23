@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/msonnabaum/application_foreman.png)](https://travis-ci.org/msonnabaum/application_foreman)
+
 # Description
 
 This cookbook provides an LWRP for using foreman to export your Procfile settings to init scripts.
