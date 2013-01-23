@@ -32,13 +32,13 @@ action :before_restart do
 
     Chef::Log.info "Running foreman export"
 
-    directory "#{new_resource.location}" do
+    directory new_resource.location do
       owner new_resource.owner
       group new_resource.group
       mode '0755'
     end
 
-    directory "#{new_resource.log}" do
+    directory new_resource.log do
       owner new_resource.owner
       group new_resource.group
       mode '0755'
