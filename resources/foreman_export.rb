@@ -16,7 +16,7 @@
 # limitations under the License.
 #
 
-include Chef::Resource::ApplicationBase
+include ApplicationCookbook::ResourceBase
 
 attribute :format, :kind_of => [String, NilClass], :default => "upstart"
 attribute :location, :kind_of => [String, NilClass], :default => "/etc/init"
