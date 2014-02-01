@@ -24,5 +24,6 @@ attribute :app, :kind_of => [String, NilClass], :default => "app"
 attribute :log, :kind_of => [String, NilClass], :default => "/var/log/app"
 attribute :user, :kind_of => [String, NilClass], :default => "app"
 attribute :env, :kind_of => [Hash, NilClass]
+attribute :concurrency, :kind_of => [Hash, String, NilClass]
 attribute :template_dir, :kind_of => [String, NilClass]
 attribute :foreman_command, :kind_of => [String, NilClass], :default => "foreman"

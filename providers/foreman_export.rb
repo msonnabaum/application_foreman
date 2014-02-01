@@ -54,11 +54,18 @@ action :before_restart do
       end
     end
 
+    concurrency = if new_resource.concurrency.is_a? Hash
+                    new_resource.concurrency.map {|k,v| "#{k}=#{v}"}.join ","
+                  else
+                    new_resource.concurrency
+                  end
+
     command = ["#{foreman_command} export #{new_resource.format} #{new_resource.location}"]
     command.push "--user=#{new_resource.user}" unless new_resource.user.nil?
     command.push "--app=#{new_resource.app}" unless new_resource.app.nil?
     command.push "--log=#{new_resource.log}" unless new_resource.log.nil?
     command.push "--env=#{env_file}" unless new_resource.env.nil?
+    command.push "--concurrency=#{concurrency}" unless concurrency.nil?
     command.push "--template=#{new_resource.template_dir}" unless new_resource.template_dir.nil?
 
     execute command.join(" ") do
